@@ -67,8 +67,45 @@ function M.setup()
 
 	lsp.setup()
 
+	require("lspkind").init({
+		preset = "codicons",
+		symbol_map = {
+			Text = "",
+			Method = "",
+			Function = "",
+			Constructor = "",
+			Field = "ﰠ",
+			Variable = "",
+			Class = "ﴯ",
+			Interface = "",
+			Module = "",
+			Property = "ﰠ",
+			Unit = "塞",
+			Value = "",
+			Enum = "",
+			Keyword = "",
+			Snippet = "",
+			Color = "",
+			File = "",
+			Reference = "",
+			Folder = "",
+			EnumMember = "",
+			Constant = "",
+			Struct = "פּ",
+			Event = "",
+			Operator = "",
+			TypeParameter = "",
+		},
+	})
+
 	local cmp = require("cmp")
 	local cmp_config = lsp.defaults.cmp_config({
+		sources = {
+			{ name = "path" },
+			{ name = "nvim_lsp" },
+			{ name = "buffer", keyword_length = 3 },
+			{ name = "nvim_lua" },
+		},
 		window = {
 			completion = cmp.config.window.bordered(),
 		},
@@ -92,6 +129,9 @@ function M.setup()
 	})
 
 	cmp.setup(cmp_config)
+
+	local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+	cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 	local null_ls = require("null-ls")
 	local null_opts = lsp.build_options("null-ls", {})

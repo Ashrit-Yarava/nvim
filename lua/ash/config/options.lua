@@ -6,6 +6,7 @@ vim.g.maplocalleader = " "
 local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
+opt.guicursor = "n-i:ver50,c:block,v:hor50"
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = {'menuone', 'noselect', 'noinsert', 'preview'}
 opt.conceallevel = 3 -- Hide * markup for bold and italic
