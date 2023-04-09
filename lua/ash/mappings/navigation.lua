@@ -6,6 +6,7 @@ m.nmap("<leader>e", ":NeoTreeRevealToggle<cr>", "File Tree")
 -- Telescope
 m.nname("<leader>t", "Telescope")
 
+m.nmap("<leader>f", ":Telescope find_files<cr>", "Find File")
 m.nmap("<leader>tf", ":Telescope find_files<cr>", "Find File")
 m.nmap("<leader>tw", ":Telescope live_grep<cr>", "Find Word")
 m.nmap("<leader>tc", ":Telescope colorscheme<cr>", "Colorscheme")
